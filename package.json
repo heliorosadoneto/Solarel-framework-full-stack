@@ -1,0 +1,36 @@
+{
+  "name": "primeiro",
+  "version": "1,1,1",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"npx tsx src/server.ts\"",
+    "build": "npx tsx build src/server.ts",
+    "start": "npx tsx src/server.ts",
+    "prod": "NODE_ENV=production node dist/server.js",
+    "cli": "ts-node scripts/cli.ts",
+    "make:controller": "ts-node scripts/cli.ts make:controller"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^6.1.1",
+    "@types/express-session": "^1.18.1",
+    "@types/pg": "^8.11.11",
+    "bcrypt": "^5.1.1",
+    "commander": "^13.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "pg": "^8.14.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
