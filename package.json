@@ -4,9 +4,13 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec \"npx tsx src/server.ts\"",
-    "build": "npx tsx build src/server.ts",
-    "start": "npx tsx src/server.ts",
+    "build": "tsc",
+    "start": "nodemon dist/src/server.js",
     "prod": "NODE_ENV=production node dist/server.js",
+
+    "deploy": "npm install && npm run build && pm2 restart process.json --env production --only apiProd --namespace apiProd",
+    "product": "npm install && npm run build && pm2 start process.json --env production --only apiProd --namespace apiProd",
+    
     "cli": "ts-node scripts/cli.ts",
     "make:controller": "ts-node scripts/cli.ts make:controller"
   },

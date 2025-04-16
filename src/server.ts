@@ -25,6 +25,7 @@ app.use(cors({
   credentials: true, // Permite enviar cookies com requisições
 }));
 
+app.use(express.static("public")); // Serve arquivos estáticos da pasta public
 // ======= MIDDLEWARES DE SEGURANÇA =======
 app.use(helmet()); // Protege contra vulnerabilidades conhecidas
 app.use(express.json()); // Para trabalhar com JSON no body
@@ -35,7 +36,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || "supersecret", // Usar .env em produção
   name: "sessionId",
   resave: false,
-  saveUninitialized: false, // Segurança: evita sessões sem dados
+  saveUninitialized: true, // Segurança: evita sessões sem dados
   cookie: {
     secure: process.env.NODE_ENV === "production", // Apenas HTTPS em produção
     httpOnly: true, // Impede acesso via JavaScript
